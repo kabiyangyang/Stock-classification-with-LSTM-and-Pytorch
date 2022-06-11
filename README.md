@@ -10,4 +10,16 @@
 ## Parameter_generator
 根据范围和step生成训练所需的模型参数和超参数，并保存至Json 文件
 
+## train
+
+### PrepareData
+读取文件 返回data数据，contents是data的索引，dict格式，key是日期，value是idx
+
+### LoadDataset
+根据训练需要（通常为滚动训练，即训练A年，验证1年,测试1年）划分训练集验证集，输入为日期和data即可，通过内置函数进行预处理，预处理主要涉及将标签变为类别（其他如标准化等数据预处理方法已经用到了原始数据上）
+
+
+通过LSTM类搭建模型并使用预定义的模型参数和超参数进行训练，模型结果，回测曲线等会保存到checkpoint文件夹里。
+
+
 
